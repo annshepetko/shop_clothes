@@ -18,7 +18,7 @@ export default function CategoryItem({image, name}) {
             <p  className={styles.container_text}>{name}</p>
             {
                     hoverState ?
-                <div onMouseEnter={transitionChanger}  className={styles.btn_div}>
+                <div  className={styles.btn_div}>
                     <Button path={name}>
                         &#8594;
                     </Button>
