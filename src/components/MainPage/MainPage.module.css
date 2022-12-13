@@ -1,0 +1,10 @@
+.container{
+    width: 1640px;
+    margin: auto;
+}
+.container_flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
