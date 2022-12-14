@@ -26,9 +26,11 @@
   
 }
 .btn_div{
+    color: aliceblue;
+    
     transition: 0.5s;
     position: absolute;
-    background-color: aliceblue;
+    background-color: rgb(15, 15, 16);
     right: 120px;
     width: 40px;
     height: 40px;

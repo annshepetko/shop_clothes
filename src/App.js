@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Button from './components/Button/Button';
 import Mainpage from './components/MainPage/Mainpage';
@@ -26,8 +26,11 @@ function App() {
     return (
     <BrowserRouter>
         <ShopStateContext.Provider value={[shopCategories, setShopCategories]}>
+            
             <div className="App">
-                <Mainpage/>
+                <Routes>
+                    <Route path='/' element = {<Mainpage/> } /> 
+                </Routes>
 
             </div>
         </ShopStateContext.Provider>
