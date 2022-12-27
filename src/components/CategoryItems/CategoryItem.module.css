@@ -1,29 +1,29 @@
 
-.card{
-    
-    width: 30%;
-    padding: 10px 20px;
-}
+
 .card_container{
     border: 1px solid rgb(122, 121, 121);
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-}
-.card_container p{
+    height: 100%;
     
-    margin: 20px 0 20px 0 ;
+}
+.container_title{
+    
+    margin: 10px 0 10px 0 ;
     font-size: 22px;
+    font-weight: 600;
     text-align: center;
     
 }
 .card_container img{
-    min-width: 100%;
    
+    max-height: 30%;
 
 }
-.container_text{
-  
+
+.btn_div :hover{
+    cursor: pointer;
 }
 .btn_div{
     color: aliceblue;
@@ -39,4 +39,7 @@
     bottom: 10px;
     
     
+}
+.container_description__container{
+    padding:  5px 10px;
 }
