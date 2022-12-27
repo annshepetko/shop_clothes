@@ -34,7 +34,7 @@ export default function CategoryItem({image, name, description, btnState = false
             </div>
             <div className={styles.container_description__container}>
                 <p className={styles.container_description}>{description}</p>
-                <p className={styles.price} >price : {price}</p>
+                <p className={styles.price} >{ btnState === false ? `price : ${price}`: '' }</p>
             </div>
             
         </div>
