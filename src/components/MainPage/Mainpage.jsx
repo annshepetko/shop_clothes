@@ -3,8 +3,8 @@ import styles from './MainPage.module.css'
 import { ShopStateContext } from '../../App'
 import CategoryItem from '../CategoryItems/CategoryItem';
 
-export default function Mainpage() {
-    let [categories, setCategories] = useContext(ShopStateContext)
+export default function Mainpage({categories, setCategories}) {
+    
     
   return (
     <div>
