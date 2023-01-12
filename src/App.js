@@ -9,10 +9,12 @@ import SecondPage from './components/SecondPage/SecondPage';
 
 export const ShopStateContext = React.createContext(null)
 
+
 function App() {
     let [shopState, setShopState] = useState([]);
     let [shopCategories, setShopCategories] = useState(['', '', '', '', ''])
     let [paramsState, setParamsState] = useState('')
+    let [emptyBasket, setEmptyBasket] = useState([])
 
     let requestFunc = async () =>{
 
@@ -27,11 +29,14 @@ function App() {
     }
     useEffect(()=> {
         requestFunc()
-        
     }, [])
-    
     shopState.forEach(el => el.count = 0)
     
+    let getOrder = (order) =>{
+        setEmptyBasket([...emptyBasket, order])
+        console.log(emptyBasket);
+    }
+
     shopCategories.length = 5
 
     let productsHandler = (allProducts = [], category) =>{
@@ -45,23 +50,22 @@ function App() {
 
     let getParams = (str) =>{
         const result = str.charAt(0).toUpperCase() + str.slice(1)
-    
         setParamsState(result)
-        
     }
     return (
     <BrowserRouter>
-        <ShopStateContext.Provider value={[shopState]}>
-            
+        <ShopStateContext.Provider value={[shopState, setShopState]}>
+         
             <div className="App">
                 <Routes>
                     <Route path='/' element = {<Mainpage categories={shopCategories} setCategories={setShopCategories}/> } />
                     <Route path={`/:category` } element= {<SecondPage getParams ={getParams} title={paramsState} arrayItems={productsHandler(shopState, paramsState )}/>} /> 
-                    <Route path={`/${paramsState}/:id` } element= {<AboutPage/>} /> 
+                    <Route path={`/${paramsState}/:id` } element= {<AboutPage setOrder = {getOrder} />} /> 
                 </Routes>
 
             </div>
-        </ShopStateContext.Provider>
+            
+        </ShopStateContext.Provider>    
     </BrowserRouter>
   );
 }

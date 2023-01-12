@@ -9,7 +9,7 @@ export default function Mainpage({categories, setCategories}) {
   return (
     <div>
         <div className={styles.container}>
-        <h2>Categories</h2>
+        <h2 className={styles.title} >Categories</h2>
             <div className={styles.container_flex}>
                 {categories.map (item => {
                 

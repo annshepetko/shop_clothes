@@ -1,7 +1,13 @@
+
 .card h2{
     font-size: 30px;
     margin-top: 30px;
     font-weight: 600;
+}
+.title{
+    margin-top: 50px;
+    font-weight: 600;
+    font-size: 32px;
 }
 .card{
     padding: 20px;
