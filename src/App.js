@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AboutPage from './components/AboutPage/AboutPage';
+import BasketPage from './components/BasketPage/BasketPage';
 import Mainpage from './components/MainPage/Mainpage';
 import SecondPage from './components/SecondPage/SecondPage';
 
@@ -28,13 +29,14 @@ function App() {
 
     }
     useEffect(()=> {
+
         requestFunc()
     }, [])
     shopState.forEach(el => el.count = 0)
     
     let getOrder = (order) =>{
         setEmptyBasket([...emptyBasket, order])
-        console.log(emptyBasket);
+        
     }
 
     shopCategories.length = 5
@@ -61,6 +63,7 @@ function App() {
                     <Route path='/' element = {<Mainpage categories={shopCategories} setCategories={setShopCategories}/> } />
                     <Route path={`/:category` } element= {<SecondPage getParams ={getParams} title={paramsState} arrayItems={productsHandler(shopState, paramsState )}/>} /> 
                     <Route path={`/${paramsState}/:id` } element= {<AboutPage setOrder = {getOrder} />} /> 
+                    <Route path='/basket' element ={<BasketPage basketItems={emptyBasket}/>}/>
                 </Routes>
 
             </div>

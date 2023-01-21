@@ -6,7 +6,8 @@
     position: relative;
     overflow: hidden;
     height: 100%;
-    
+    display: inherit;
+    width: 100%;
 }
 .container_title{
     
@@ -16,11 +17,7 @@
     text-align: center;
     
 }
-.card_container img{
-   
-    max-height: 30%;
 
-}
 
 .btn_div :hover{
     cursor: pointer;
@@ -41,9 +38,23 @@
     
 }
 .container_description__container{
+
     padding:  5px 10px;
+   
 }
 .price{
-    
+    flex-grow: 1;
     font-weight: 600;
+}
+.basketItem_container{
+   
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+.button_container{
+    border-radius: 5px;
+    color: rgb(122, 121, 121);
+    font-size: 24px;
 }

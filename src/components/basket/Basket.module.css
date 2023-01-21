@@ -1,0 +1,13 @@
+.basket_container img{
+    width: 70px;
+    height: 70px;
+ 
+
+}
+
+.basket_container{
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #333;
+    border-radius: 20px;
+}

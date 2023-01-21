@@ -1,0 +1,22 @@
+
+.basket_container{
+  
+    max-width: 50%;
+    margin: auto;
+    padding-top: 100px;
+}
+.card_wrapper{
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.card_wrapper img{
+    height: 100px;
+    width: 100px;
+}
+.title_basket{
+    margin-bottom: 20px;
+
+    font-weight: 600;
+    font-size: 25px;
+}

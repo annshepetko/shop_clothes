@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import CategoryItem from '../CategoryItems/CategoryItem'
 import styles from './SecondPage.module.css'
 import { useParams } from 'react-router-dom'
+import Basket from '../basket/Basket'
 
 export default function SecondPage({title, arrayItems, getParams }) {
     let {category} = useParams()
@@ -11,7 +12,6 @@ export default function SecondPage({title, arrayItems, getParams }) {
         getParams(category)
        
     },[])
-    console.log(arrayItems);
   return (
     <div className={styles.main}>
         <div className={styles.container}>
@@ -21,12 +21,15 @@ export default function SecondPage({title, arrayItems, getParams }) {
                 
                     return( 
                         <div className={styles.card}>
-                            <CategoryItem price={item.price}  id = {item.id} description={item.description} image={item.images} name={item.title}/>
+                            <CategoryItem priceState={true} price={item.price}  id = {item.id} description={item.description} image={item.images} name={item.title}/>
                         </div>
                     )
                     })
                 }
             </div>
+        </div>
+        <div className={styles.basket_wraper}>
+            <Basket/>
         </div>
     </div>
   )
