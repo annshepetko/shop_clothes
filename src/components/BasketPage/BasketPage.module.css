@@ -11,12 +11,19 @@
 }
 
 .card_wrapper img{
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
 }
 .title_basket{
     margin-bottom: 20px;
 
     font-weight: 600;
     font-size: 25px;
+}
+.empty_basket{
+    
+    margin-top: 150px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
 }

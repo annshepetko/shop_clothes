@@ -2,19 +2,22 @@ import React from 'react'
 import CategoryItem from '../CategoryItems/CategoryItem'
 import styles from './BasketPage.module.css'
 
-export default function BasketPage({basketItems}) {
-  
+export default function BasketPage({basketItems = [], setBasketItems}) {
+  let itemHandler = (id) =>{
+    setBasketItems(basketItems.filter(item => item.id == id ? '' : item))
+  }
   
     return (
     <div>
         <div className="">
         <div className={styles.basket_container}>
             <h2 className={styles.title_basket} >Basket</h2>
+            {basketItems.length == 0 ? <h3 className={styles.empty_basket}>Basket is empty... ( </h3> : ''}
         { 
 
             basketItems.map(item => 
             <div className={styles.card_wrapper}>
-                <CategoryItem basketState={true} id={item.id} count={item.count} price={item.price * item.count} image={item.images}/>
+                <CategoryItem itemHandler ={itemHandler} basketState={true} id={item.id} count={item.count} price={item.price * item.count} image={item.images}/>
             </div>
             )
         

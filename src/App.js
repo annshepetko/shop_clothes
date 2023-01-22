@@ -63,7 +63,7 @@ function App() {
                     <Route path='/' element = {<Mainpage categories={shopCategories} setCategories={setShopCategories}/> } />
                     <Route path={`/:category` } element= {<SecondPage getParams ={getParams} title={paramsState} arrayItems={productsHandler(shopState, paramsState )}/>} /> 
                     <Route path={`/${paramsState}/:id` } element= {<AboutPage setOrder = {getOrder} />} /> 
-                    <Route path='/basket' element ={<BasketPage basketItems={emptyBasket}/>}/>
+                    <Route path='/basket' element ={<BasketPage setBasketItems={setEmptyBasket} basketItems={emptyBasket}/>}/>
                 </Routes>
 
             </div>
