@@ -19,7 +19,10 @@ export default function CategoryItem({image, id,basketState = false, count, item
                 <img src={image} alt="" />
             </div>
             <div className={styles.btn_container}>
-                <p  className={styles.container_title}>{name}</p>
+
+                {!basketState ? <p className={styles.container_title}>{name}</p> : ''}
+                    
+              
                 {
                         hoverState && btnState && basketState ===false  ?
                     <div  className={styles.btn_div}>
@@ -54,9 +57,10 @@ export default function CategoryItem({image, id,basketState = false, count, item
             </div>
             
             { basketState ?
-            
+            <>
             
             <div className={styles.basketItem_container}>
+            <p className={styles.basketItem_container_title}>{name}</p>
                 <p>count:  {count}</p>
                 <p>${price}</p>
                 <div onClick ={deleteItem} className={styles.button_container}>
@@ -65,6 +69,7 @@ export default function CategoryItem({image, id,basketState = false, count, item
                     </Button>
                 </div>
             </div>
+            </>
             :
              ''
             }

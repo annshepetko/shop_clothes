@@ -1,4 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import Button from '../Button/Button'
 import CategoryItem from '../CategoryItems/CategoryItem'
 import styles from './BasketPage.module.css'
 
@@ -17,12 +19,18 @@ export default function BasketPage({basketItems = [], setBasketItems}) {
 
             basketItems.map(item => 
             <div className={styles.card_wrapper}>
-                <CategoryItem itemHandler ={itemHandler} basketState={true} id={item.id} count={item.count} price={item.price * item.count} image={item.images}/>
+                <CategoryItem itemHandler ={itemHandler} name={item.title} basketState={true} id={item.id} count={item.count} price={item.price * item.count} image={item.images}/>
             </div>
             )
-        
+            
         }
+        <NavLink to={'/form'}>
+            <Button>
+                Issue order
+            </Button>
+        </NavLink>
         </div>
+
         </div>
     </div>
   )
