@@ -25,11 +25,13 @@ export default function BasketPage({basketItems = [], setBasketItems}) {
             
         }
         {basketItems.length !== 0 ?
-        <NavLink to={'/form'}>
-            <Button>
-                Issue order
-            </Button>
-        </NavLink>
+        <div className={styles.btn_form}>
+            <NavLink to={'/form'}>
+                <Button>
+                    Issue order
+                </Button>
+            </NavLink>
+        </div>
         :
         ''
         }

@@ -1,0 +1,27 @@
+.title{
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-weight: 600;
+}
+.main_container{
+    padding-top: 10%;
+    max-width: 1000px;
+    margin: auto;
+
+
+}
+.orderItem_container {
+    display: flex;
+
+}
+.orderItem_container:not(:last-child){
+    margin-bottom: 15px;
+}
+.orderItem_container img{
+    height: 150px;
+    width: 150px;
+}
+.order_container{
+    height: 300px;
+    overflow: auto;
+}

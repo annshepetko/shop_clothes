@@ -7,7 +7,7 @@ import AboutPage from './components/AboutPage/AboutPage';
 import BasketPage from './components/BasketPage/BasketPage';
 import Mainpage from './components/MainPage/Mainpage';
 import SecondPage from './components/SecondPage/SecondPage';
-
+import Form from './components/Form/Form';
 export const ShopStateContext = React.createContext(null)
 
 
@@ -64,6 +64,7 @@ function App() {
                     <Route path={`/:category` } element= {<SecondPage getParams ={getParams} title={paramsState} arrayItems={productsHandler(shopState, paramsState )}/>} /> 
                     <Route path={`/${paramsState}/:id` } element= {<AboutPage setOrder = {getOrder} />} /> 
                     <Route path='/basket' element ={<BasketPage setBasketItems={setEmptyBasket} basketItems={emptyBasket}/>}/>
+                    <Route path='/form' element ={<Form orderItems ={emptyBasket} />}/>
                 </Routes>
 
             </div>
