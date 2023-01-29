@@ -25,6 +25,27 @@ export default function Form({orderItems = []}) {
                 )
             }
         </div>
+        <form className={styles.order_inputs}>
+            <div className={styles.order_inputs_text}>
+                <label for='userName' > Enter your name </label>
+                <input id='userName'type="text" />
+                <label for='userName' > Enter your name </label>
+                <input type="text" />
+                <label for='userName' > Enter your name </label>
+                <input type="text" />
+                <label for='userName' > Enter your name </label>
+                <input type="text" />
+                <label for='userName' > Enter your name </label>
+                <input type="text" />
+                <label for='userName' > Enter your name </label>
+                <input type="text" />
+            </div>
+            <div className={styles.order_inputs_radio}>
+                <input type="radio" name="" id="" />
+                <input type="radio" name="" id="" />
+                <input type="radio" name="" id="" />
+            </div>
+        </form>
     </div>
     </>
  

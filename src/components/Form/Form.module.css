@@ -18,10 +18,36 @@
     margin-bottom: 15px;
 }
 .orderItem_container img{
-    height: 150px;
+    height: 112px;
     width: 150px;
 }
 .order_container{
-    height: 300px;
+    border-radius: 20px;
+    height: 200px;
     overflow: auto;
+}
+.order_inputs{
+    margin-top: 50px;
+    display: flex;
+}
+.order_inputs label{
+    display: block;
+    margin-bottom: 10px;
+}
+.order_inputs_text{
+    width: 50%;
+}
+.order_inputs_text input{
+    padding: 10px;
+    font-size: 18px;
+    display: block;
+    border-radius: 20px;
+    width: 100%;
+}
+.order_inputs_text :not(:last-child){
+    margin-bottom: 10px;
+}
+.order_inputs_radio{
+
+
 }
