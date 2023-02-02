@@ -8,12 +8,15 @@ import BasketPage from './components/BasketPage/BasketPage';
 import Mainpage from './components/MainPage/Mainpage';
 import SecondPage from './components/SecondPage/SecondPage';
 import Form from './components/Form/Form';
+import Loader from './components/Loader/Loader';
+import { animated, useSpring } from 'react-spring'
+
 export const ShopStateContext = React.createContext(null)
 
 
 function App() {
     let [shopState, setShopState] = useState([]);
-    let [shopCategories, setShopCategories] = useState(['', '', '', '', ''])
+    let [shopCategories, setShopCategories] = useState([])
     let [paramsState, setParamsState] = useState('')
     let [emptyBasket, setEmptyBasket] = useState([])
 
@@ -54,20 +57,27 @@ function App() {
         const result = str.charAt(0).toUpperCase() + str.slice(1)
         setParamsState(result)
     }
+    let mainBlockStyles = useSpring({from: {opacity: 0}, to: {opacity : 1}, config: {duration: 1000 }})
     return (
     <BrowserRouter>
         <ShopStateContext.Provider value={[shopState, setShopState]}>
          
-            <div className="App">
+            <animated.div style={mainBlockStyles} className="App">
+
+                {  shopState.length < 10 ?
+                
+                <Loader/>
+                :
                 <Routes>
-                    <Route path='/' element = {<Mainpage categories={shopCategories} setCategories={setShopCategories}/> } />
+                    <Route path='/' element = {<Mainpage categories={shopCategories} setCategories={setShopCategories}/> }/>
                     <Route path={`/:category` } element= {<SecondPage getParams ={getParams} title={paramsState} arrayItems={productsHandler(shopState, paramsState )}/>} /> 
                     <Route path={`/${paramsState}/:id` } element= {<AboutPage setOrder = {getOrder} />} /> 
                     <Route path='/basket' element ={<BasketPage setBasketItems={setEmptyBasket} basketItems={emptyBasket}/>}/>
                     <Route path='/form' element ={<Form orderItems ={emptyBasket} />}/>
                 </Routes>
-
-            </div>
+                }
+            
+            </animated.div>
             
         </ShopStateContext.Provider>    
     </BrowserRouter>
