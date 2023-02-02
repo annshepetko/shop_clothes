@@ -7,12 +7,11 @@ import Popup from '../popup/Popup'
 import Basket from '../basket/Basket'
 
 
-
 function AboutPage({setOrder}) {
     let {id} = useParams()
     let [arrayState, setArrayState] = useContext(ShopStateContext)
     let [aboutState, setAboutState] = useState(arrayState.find(el => el.id == id.valueOf()))
-    let[popupState, setPopupState] = useState(false)
+    let [popupState, setPopupState] = useState(false)
     let [popupText, setPopupText] = useState('')
 
     let popupHandler = (variant) => {
@@ -37,9 +36,12 @@ function AboutPage({setOrder}) {
             setPopupText('Empty order')
             popupHandler(true)
         }
-        
-
     }
+
+
+
+
+
     return (
     <div className="">
         <div className={styles.main_container}>
@@ -72,7 +74,14 @@ function AboutPage({setOrder}) {
                     </div>
 
                </div>
-                    { popupState ? <Popup onClick = {()=> {popupHandler(false)}} title={popupText}/> : ''}
+
+                { popupState ?
+              
+                    <Popup onClick = {()=> {popupHandler(false)}} title={popupText}/> 
+                :
+                
+                ''
+                }
 
             </div>   
 

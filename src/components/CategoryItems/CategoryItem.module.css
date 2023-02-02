@@ -25,7 +25,6 @@
 .btn_div{
     color: aliceblue;
     font-weight: 600;
-    transition: 0.5s;
     position: absolute;
     background-color: rgb(15, 15, 16);
     right: 0px;
@@ -33,9 +32,21 @@
     height: 40px;
     overflow: hidden;
     border-radius: 50%;
-    bottom: 0px;
-    
-    
+    animation-name:buttonAnimation ;
+    animation-duration: .5s;
+    bottom: 0;
+}
+@keyframes buttonAnimation {
+    0%{
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100%{
+        transform: scale(1);
+
+        opacity: 1;
+    }
 }
 .container_description__container{
 

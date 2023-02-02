@@ -1,7 +1,8 @@
-import {React, useState} from 'react'
+import {React, useRef, useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 import styles from './CategoryItem.module.css'
+
 
 export default function CategoryItem({image, id,basketState = false, count, itemHandler, name, description, btnState = false, price }) {
     let [hoverState, setHoverState] = useState(false)
@@ -25,14 +26,15 @@ export default function CategoryItem({image, id,basketState = false, count, item
               
                 {
                         hoverState && btnState && basketState ===false  ?
-                    <div  className={styles.btn_div}>
-                        <NavLink to={name.toLowerCase()} >
-                            <Button>
-                                &#8594;
-                            </Button>
-                        </NavLink>
-                    </div>
-                    
+
+                                <div className={styles.btn_div}>
+                                    <NavLink to={name.toLowerCase()}>
+                                        <Button>
+                                            &#8594;
+                                        </Button>
+                                    </NavLink>
+                                </div>
+
                     :
                    ''
                  

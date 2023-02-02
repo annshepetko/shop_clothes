@@ -8,14 +8,16 @@ import BasketPage from './components/BasketPage/BasketPage';
 import Mainpage from './components/MainPage/Mainpage';
 import SecondPage from './components/SecondPage/SecondPage';
 import Form from './components/Form/Form';
+import Loader from './components/Loader/Loader';
+
 export const ShopStateContext = React.createContext(null)
 
 
 function App() {
-    let [shopState, setShopState] = useState([]);
-    let [shopCategories, setShopCategories] = useState(['', '', '', '', ''])
-    let [paramsState, setParamsState] = useState('')
-    let [emptyBasket, setEmptyBasket] = useState([])
+    let [shopState, setShopState] = useState([]);  // main state (all products)
+    let [shopCategories, setShopCategories] = useState([]) // categories state
+    let [paramsState, setParamsState] = useState('') // param state (adress str)
+    let [emptyBasket, setEmptyBasket] = useState([]) // basket state
 
     let requestFunc = async () =>{
 
@@ -58,16 +60,24 @@ function App() {
     <BrowserRouter>
         <ShopStateContext.Provider value={[shopState, setShopState]}>
          
-            <div className="App">
+           
+
+            {  shopState.length < 10 ?
+            
+            <Loader/>
+            :
+            <div  className="App">
                 <Routes>
-                    <Route path='/' element = {<Mainpage categories={shopCategories} setCategories={setShopCategories}/> } />
+                    <Route path='/' element = {<Mainpage categories={shopCategories} setCategories={setShopCategories}/> }/>
                     <Route path={`/:category` } element= {<SecondPage getParams ={getParams} title={paramsState} arrayItems={productsHandler(shopState, paramsState )}/>} /> 
                     <Route path={`/${paramsState}/:id` } element= {<AboutPage setOrder = {getOrder} />} /> 
                     <Route path='/basket' element ={<BasketPage setBasketItems={setEmptyBasket} basketItems={emptyBasket}/>}/>
                     <Route path='/form' element ={<Form orderItems ={emptyBasket} />}/>
                 </Routes>
-
             </div>
+            }
+            
+            
             
         </ShopStateContext.Provider>    
     </BrowserRouter>

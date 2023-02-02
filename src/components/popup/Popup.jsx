@@ -4,6 +4,7 @@ import styles from './Popup.module.css'
 
 
 export default function Popup({title, onClick}) {
+    
   return (
     <div className={styles.popup}>
     <div  className={styles.popup__body}>
